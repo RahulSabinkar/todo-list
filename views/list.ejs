@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
-  </head>
-  <body>
-    <h1><%= day %></h1>
+<%- include('header'); -%>
 
-    <form action="/" method="post">
-      <input type="text" name="newItemInput" autofocus>
-      <button type="submit">Add</button>
-    </form>
+<div class="box" id="heading">
+  <h1><%= listTitle %></h1>
+</div>
 
-    <ul>
-      <% newItemsList.forEach(element => { %> 
-      <li><%= element %></li>
-      <% }); %>
-    </ul>
+<div class="box">
+  <% newItemsList.forEach(element => { %>
+  <div class="item">
+    <input type="checkbox" />
+    <p><%= element %></p>
+  </div>
+  <% }); %>
+  
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItemInput" placeholder="New Item" autocomplete="off">
+    <button type="submit" name="list" value="<%= listTitle %>">+</button>
+  </form>
+</div>
 
-  </body>
-</html>
+<%- include('footer'); -%>

@@ -1,23 +1,21 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + "/date.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-let items = ['Get milk', 'Get bread', 'Get eggs'];
-let workItems = [];
+const items = ['Get milk', 'Get bread', 'Get eggs'];
+const workItems = [];
 
 app.get('/', (req, res) => {
-  let date = new Date();
-  const options = { weekday: 'long', month: 'short', day: 'numeric'};
-  let today = date.toLocaleDateString('en-US', options);
-
-  res.render('list', {listTitle: today, newItemsList: items});
+  let day = date.getDate();
+  res.render('list', {listTitle: day, newItemsList: items});
 })
 
 app.post('/', (req, res) => {
@@ -32,7 +30,11 @@ app.post('/', (req, res) => {
 })
 
 app.get('/work', (req, res) => {
-  res.render('list', {listTitle: "Work", newItemsList: workItems});
+  res.render('list', {listTitle: 'Work', newItemsList: workItems});
+})
+
+app.get('/about', (req, res) => {
+  res.render('about');
 })
 
 app.listen(PORT, ()=> {

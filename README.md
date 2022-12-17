@@ -1,6 +1,8 @@
 # To-Do List
 A simple To-Do List web application built using ejs, express and node.
 
+## Check it out [here](https://rahulsabinkar-todo.onrender.com/)
+
 ## Things I learned:
 - Creating dynamic HTML pages using EJS
 - EJS Templates and Layouts
@@ -25,4 +27,4 @@ npm run start
 4. Open a browser and visit `localhost:3000`
 
 ## TODO
-Plans to expand the web application and deploy it.
+Plans to expand the web application.

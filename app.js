@@ -14,12 +14,12 @@ const items = ['Get milk', 'Get bread', 'Get eggs'];
 const workItems = [];
 
 app.get('/', (req, res) => {
-  let day = date.getDate();
+  const day = date.getDate();
   res.render('list', {listTitle: day, newItemsList: items});
 })
 
 app.post('/', (req, res) => {
-  let item = req.body.newItemInput;
+  const item = req.body.newItemInput;
   if (req.body.list === 'Work') {
     workItems.push(item);
     res.redirect('/work');
